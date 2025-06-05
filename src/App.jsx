@@ -23,6 +23,8 @@ function App() {
     console.log('on mount');
   }, []); // this exact line that make the magic happen
 
+  // this also good to use in intervals and timeouts
+
   return (
     <div>
       <button onClick={() => setCounter((p) => p + 1)}>Click{counter}</button>
