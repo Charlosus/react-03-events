@@ -1,7 +1,7 @@
 {
-  "name": "basic-setup",
+  "name": "react-03-event",
   "private": true,
-  "homepage": "https://Charlosus.github.io/basic-setup",
+  "homepage": "https://Charlosus.github.io/react-03-event",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
