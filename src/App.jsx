@@ -51,7 +51,7 @@ function Test() {
   }, []); // here we make that use effect hits onlu at first render
   return <h1>Test</h1>; // elemnt we want to toggle
 }
-log
+
 function App() {
   // here we create a main component
   const [show, setShow] = useState(true); // thats destructurize useState and start value is true
@@ -75,20 +75,20 @@ function App() {
 // if interval was started and wasent cleared it will still count even being "invisible" from userperspective
 // this can harm performance so here is some thing use full to stop that
 
-function TestInt() {
-  // function declaration
-  useEffect(() => {
-    // useEffect applied
-    const id = setInterval(() => {
-      // started interval in mounting component
-      console.log();
-    }, 1000); // time between intervals
-    return () => {
-      // return // he we comunicate we want something to happen after dismounting
-      clearInterval(id); // body of return in this case clearing interval
-    };
-  });
-};
+// function TestInt() {
+//   // function declaration
+//   useEffect(() => {
+//     // useEffect applied
+//     const id = setInterval(() => {
+//       // started interval in mounting component
+//       console.log();
+//     }, 1000); // time between intervals
+//     return () => {
+//       // return // he we comunicate we want something to happen after dismounting
+//       clearInterval(id); // body of return in this case clearing interval
+//     };
+//   });
+// };
 
 
 export default App;
