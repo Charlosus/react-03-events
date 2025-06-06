@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+// import reactLogo from './assets/react.svg';
+// import viteLogo from '/vite.svg';
 import './App.css';
 
 function App() {
@@ -19,11 +19,17 @@ function App() {
   // at first render of code this is the way we want to manage
   // API asks or any getter of any dataquery
 
-  useEffect(() => {
-    console.log('on mount');
-  }, []); // this exact line that make the magic happen
+  // useEffect(() => {
+  //   console.log('on mount');
+  // }, []); // this exact line that make the magic happen
 
   // this also good to use in intervals and timeouts
+
+  // if we woud want to event happen on change of our counter we need to add the
+  // in place of arrays
+  useEffect(() => {
+    console.log('on mount and counterClick');
+  }, [counter, counter2]);
 
   return (
     <div>
