@@ -41,25 +41,54 @@ import './App.css';
 
 //=====================================================================================
 
-// lest use useEffect to create button that toggle visibility of element 
+// lest use useEffect to create button that toggle visibility of element
 
-
-function Test() {               // we create a function 
-  useEffect(() => {             // that in body have a useEffect()
-    console.log("Test mount")   // this is just log for testing 
-  }, []);                       // here we make that use effect hits onlu at first render 
-  return <h1>Test</h1>          // elemnt we want to toggle 
+function Test() {
+  // we create a function
+  useEffect(() => {
+    // that in body have a useEffect()
+    console.log('Test mount'); // this is just log for testing
+  }, []); // here we make that use effect hits onlu at first render
+  return <h1>Test</h1>; // elemnt we want to toggle
 }
-
-function App() {                          // here we create a main component 
-  const [show, setShow] = useState(true)  // thats destructurize useState and start value is true 
-  return (                                // and its return the component that have test nested 
+log
+function App() {
+  // here we create a main component
+  const [show, setShow] = useState(true); // thats destructurize useState and start value is true
+  return (
+    // and its return the component that have test nested
     <div>
-      <button onClick={() => setShow((p) => !p)}>   {/*here setShow takes curent state and change it to opposite */}  
+      <button onClick={() => setShow((p) => !p)}>
+        {' '}
+        {/*here setShow takes curent state and change it to opposite */}
         Show/hide
       </button>
-      {show && <Test />}                            {/**/}
+      {show && <Test />} {/**/}
     </div>
-  )
+  );
 }
+
+//====================================================================================
+
+// in useEffect in yet another usefull thing we can utilize in return we specify what we want
+// to happen when effect ended or is dismounted this is particulary usefull when operating on intervals
+// if interval was started and wasent cleared it will still count even being "invisible" from userperspective
+// this can harm performance so here is some thing use full to stop that
+
+function TestInt() {
+  // function declaration
+  useEffect(() => {
+    // useEffect applied
+    const id = setInterval(() => {
+      // started interval in mounting component
+      console.log();
+    }, 1000); // time between intervals
+    return () => {
+      // return // he we comunicate we want something to happen after dismounting
+      clearInterval(id); // body of return in this case clearing interval
+    };
+  });
+};
+
+
 export default App;
